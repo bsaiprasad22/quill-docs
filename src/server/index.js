@@ -9,7 +9,7 @@ server.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "../../build")));
 
 const mongoose = require("mongoose");
 const Document = require("./Document");
