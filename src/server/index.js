@@ -10,6 +10,9 @@ server.listen(port, () => {
 });
 
 app.use(express.static(__dirname + "/../../build"));
+app.get("/*", function (req, res) {
+  res.sendFile(__dirname + "/../../build" + "/index.html");
+});
 
 const mongoose = require("mongoose");
 const Document = require("./Document");
