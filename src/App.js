@@ -16,7 +16,7 @@ function App() {
         <Route path="/" exact>
           <Redirect to={`/documents/${uuidv4()}`} />
         </Route>
-        <Route path="/documents/:id" component={TextEditor} />
+        <Route exact path="/documents/:id" component={TextEditor} />
       </Switch>
     </Router>
   );
