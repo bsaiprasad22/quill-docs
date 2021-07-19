@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import TextEditor from "./TextEditor";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+
+import "./styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to={`/documents/${uuidv4()}`} />
+        </Route>
+        <Route path="/documents/:id" component={TextEditor} />
+      </Switch>
+    </Router>
   );
 }
 
