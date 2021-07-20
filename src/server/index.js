@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
+const path = require("path");
 const io = (module.exports.io = require("socket.io")(server));
 
 const port = process.env.PORT || 3001;
@@ -9,9 +10,9 @@ server.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-app.use(express.static(__dirname + "/../../build"));
-app.get("*", function (req, res) {
-  res.sendFile(__dirname + "/../../build" + "/index.html");
+app.use(express.static(path.join(__dirname, "../../build")));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../../build", "index.html"));
 });
 
 const mongoose = require("mongoose");
