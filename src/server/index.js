@@ -19,14 +19,11 @@ const mongoose = require("mongoose");
 const Document = require("./Document");
 require("dotenv").config();
 
-mongoose.connect(
-  "mongodb+srv://bsaiprasad:prem_sai@mern.fiw5j.mongodb.net/googledocs-clone?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  }
-);
+mongoose.connect(DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 
 // const io = require("socket.io")(server, {
 //   cors: {
